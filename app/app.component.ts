@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ModuleWithProviders } from '@angular/core';
+import { ROUTER_DIRECTIVES, Router, Routes } from '@angular/router';
 
 @Component({
   selector: 'my-app',
@@ -11,14 +12,17 @@ export class AppComponent  { name = 'Angular'; }
 @Component({
 	selector: 'moeraki-kemu',
 	template `<h1>Greetings from Moeraki Kemu</h1>
-	<p>1 + 2 = {{1+2}}</p>`,
+	<p>1 + 2 = {{1+2}}</p>
+	<a >Click here to Signup</a>`,
 })
-export class AppMK{}
+export class AppMK {
+	constructor(public router : Router) {}
+}
 
 
 @Component({
   selector: 'manual',
-  template: `<h1>Spielanleitung</h1>
+  template: `<h1>Spielanleitung - Angular</h1>
     <h2>Kurzbeschreibung</h2>
         <p class="Kurzbeschreibung">
             Die Spieler treten als Oberhaupt eines Maori-Stammes im Süden Neuseelands gegeneinander an, um ihren Anspruch auf einen heiligen Strandabschnitt
@@ -65,7 +69,8 @@ export class Manual {
 
 @Component({
   selector: 'board',
-  template: `<div class="table-responsive">
+  template: `<h1>Spielbrett - Angular</h1>
+			<div class="table-responsive">
             <table class="center">
             @for(i <- 0 until 8) {
             <tr>
