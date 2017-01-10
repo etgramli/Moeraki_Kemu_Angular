@@ -47,27 +47,3 @@ export class HeroesComponent implements OnInit {
 })
 export class AppMK {}
 
-
-@Component({
-	selector: 'board',
-	template: `
-            <table class="center">
-            <tr>
-				<cell>Game Cell</cell>
-            </tr>
-            </table>`,
-})
-export class Board {
-	private websocket;
-	private controller;
-	private length: number;
-}
-
-@Component({
-	selector: 'cell',
-	template: `<th class="gameCell" id="@i-@j">&nbsp;</th>`,
-})
-export class Cell {
-	private coords: string;
-	private playerString: string;
-}
