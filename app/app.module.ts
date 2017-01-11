@@ -8,6 +8,7 @@ import { DashboardComponent }  from './dashboard.component';
 import { HeroesComponent }     from './heroes.component';
 import { HeroDetailComponent } from './hero-detail.component';
 import { HeroService }         from './hero.service';
+import { WebsocketService }    from './websocket.service';
 
 @NgModule({
   imports:      [ BrowserModule,
@@ -18,7 +19,9 @@ import { HeroService }         from './hero.service';
                   DashboardComponent,
 				  HeroesComponent,
 				  HeroDetailComponent ],
-  providers:    [ HeroService ],
+  providers:    [ HeroService,
+				  WebsocketService
+				],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

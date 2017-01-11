@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { Cell } from './cell.component';
+
 @Component({
 	selector: 'board',
 	template: `
@@ -10,6 +12,8 @@ import { Component } from '@angular/core';
             </table>`,
 })
 export class Board {
+	cells[]: Cell;
+	
 	constructor(
 		private WebsocketService;
 		private controller;

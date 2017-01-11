@@ -6,6 +6,8 @@ import { Component } from '@angular/core';
 })
 export class Cell {
 	
+	color: string;
+	
 	constructor(
 		private coords: string,
 		private playerString: string) {}

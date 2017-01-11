@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import Rx from "rxjs";
+import { Observable } from 'rxjs/Observable';
+import { Observer }   from 'rxjs/Observer';
+import { Subject }    from 'rxjs/Subject';
 
 export interface Message {
 	message: string;
@@ -8,24 +10,24 @@ export interface Message {
 @Injectable()
 export class WebsocketService {
 
-	private subject: Rx.Subject<MessageEvent>;
+	private subject: Subject<MessageEvent>;
 	private webSocket: WebSocket;
 	
-	public connect(): Rx.Subject<MessageEvent> {
+	public connect(): Subject<MessageEvent> {
 		return this.connect('ws://localhost:9000/ws');
 	}
 	
-	public connect(url): Rx.Subject<MessageEvent> {
+	public connect(url): Subject<MessageEvent> {
 		if (!this.subject) {
 			this.subject = this.create(url);
 		}
 		return this.subject;
 	}
 	
-	private create(url): Rx.Subject<MessageEvent> {
+	private create(url): Subject<MessageEvent> {
 		ws = new WebSocket(url);
-		let observable = Rx.Observable.create(
-			(obs: Rx.Observer<MessageEvent>) => {
+		let observable = Observable.create(
+			(obs: Observer<MessageEvent>) => {
 				ws.onmessage = obs.next.bind(obs);
 				ws.onerror = obs.error.bind(obs);
 				ws.onclose = obs.complete.bind(obs);
@@ -41,7 +43,7 @@ export class WebsocketService {
 			},
 		};
 
-		return Rx.Subject.create(observer, observable);
+		return Subject.create(observer, observable);
     );
 
     let observer = {
@@ -52,7 +54,7 @@ export class WebsocketService {
         },
     };
 
-    return Rx.Subject.create(observer, observable);
+    return Subject.create(observer, observable);
 	}
 
   public initWebSocket(url: string): void {
