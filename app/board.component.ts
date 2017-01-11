@@ -1,6 +1,8 @@
 import { Component }        from '@angular/core';
 
-import { WebsocketService } from './websocket.service';
+import { Subject }          from 'rxjs/Subject';
+
+import { WebSocketService } from './websocket.service';
 import { CellComponent }    from './cell.component';
 
 @Component({
@@ -16,11 +18,9 @@ export class BoardComponent {
 	private cells[8][8]: CellComponent;
 	private length: number;
 	
-	Subject<MessageEvent> subject;
 	
-	constructor(private ws: WebsocketService;) {
+	constructor(private ws: WebSocketService) {
 		this.length = 8;
-		this.subject = ws.concect();
 	}
 
 }

@@ -2,7 +2,7 @@ import { NgModule }            from '@angular/core';
 import { BrowserModule }       from '@angular/platform-browser';
 import { FormsModule }         from '@angular/forms';
 
-import { WebsocketService }    from './websocket.service';
+import { WebSocketService }    from './websocket.service';
 
 import { BoardComponent }      from './board.component';
 import { CellComponent }       from './cell.component';
@@ -14,7 +14,7 @@ import { CellComponent }       from './cell.component';
   declarations: [ CellComponent,
 				  BoardComponent
 				],
-  providers:    [ WebsocketService ],
+  providers:    [ WebSocketService ],
   bootstrap:    [ BoardComponent ]
 })
 export class AppModule { }
