@@ -1,23 +1,26 @@
-import { Component } from '@angular/core';
+import { Component }        from '@angular/core';
 
-import { Cell } from './cell.component';
+import { WebsocketService } from './websocket.service';
+import { CellComponent }    from './cell.component';
 
 @Component({
-	selector: 'board',
+	selector: 'my-board',
 	template: `
             <table class="center">
-            <tr>
-				<cell>Game Cell</cell>
-            </tr>
-            </table>`,
+				<tbody>
+				</tbody>
+			</table>
+`,
 })
-export class Board {
-	cells[]: Cell;
+export class BoardComponent {
+	private cells[8][8]: CellComponent;
+	private length: number;
 	
-	constructor(
-		private WebsocketService;
-		private controller;
-		private length: number;
-	) {}
+	Subject<MessageEvent> subject;
+	
+	constructor(private ws: WebsocketService;) {
+		this.length = 8;
+		this.subject = ws.concect();
+	}
 
 }

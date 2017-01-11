@@ -2,26 +2,19 @@ import { NgModule }            from '@angular/core';
 import { BrowserModule }       from '@angular/platform-browser';
 import { FormsModule }         from '@angular/forms';
 
-import { AppComponent }        from './app.component';
-import { AppRoutingModule }    from './app-routing.module';
-import { DashboardComponent }  from './dashboard.component';
-import { HeroesComponent }     from './heroes.component';
-import { HeroDetailComponent } from './hero-detail.component';
-import { HeroService }         from './hero.service';
 import { WebsocketService }    from './websocket.service';
+
+import { BoardComponent }      from './board.component';
+import { CellComponent }       from './cell.component';
 
 @NgModule({
   imports:      [ BrowserModule,
-				  FormsModule,
-				  AppRoutingModule
+				  FormsModule
 				],
-  declarations: [ AppComponent,
-                  DashboardComponent,
-				  HeroesComponent,
-				  HeroDetailComponent ],
-  providers:    [ HeroService,
-				  WebsocketService
+  declarations: [ CellComponent,
+				  BoardComponent
 				],
-  bootstrap:    [ AppComponent ]
+  providers:    [ WebsocketService ],
+  bootstrap:    [ BoardComponent ]
 })
 export class AppModule { }

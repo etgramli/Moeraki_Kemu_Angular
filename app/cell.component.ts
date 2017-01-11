@@ -4,13 +4,12 @@ import { Component } from '@angular/core';
 	selector: 'cell',
 	template: `<th class="gameCell" id="coords">&nbsp;</th>`,
 })
-export class Cell {
+export class CellComponent {
 	
 	color: string;
+	playerString: string;
 	
-	constructor(
-		private coords: string,
-		private playerString: string) {}
+	constructor(private coords: string) {}
 	
 	public getPlayerString(): string {
 		return this.playerString;
