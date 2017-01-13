@@ -1,20 +1,21 @@
-import { NgModule }            from '@angular/core';
-import { BrowserModule }       from '@angular/platform-browser';
-import { FormsModule }         from '@angular/forms';
+import { NgModule }         from '@angular/core';
+import { BrowserModule }    from '@angular/platform-browser';
+import { FormsModule }      from '@angular/forms';
+import { HttpModule }       from '@angular/http';
 
-import { WebSocketService }    from './websocket.service';
+import { WebsocketService } from './websocket.service';
 
-import { BoardComponent }      from './board.component';
-import { CellComponent }       from './cell.component';
+import { BoardComponent }   from './board.component';
+import { Cell }             from './cell.component';
 
 @NgModule({
   imports:      [ BrowserModule,
-				  FormsModule
+				  FormsModule,
+				  HttpModule
 				],
-  declarations: [ CellComponent,
-				  BoardComponent
+  declarations: [ BoardComponent
 				],
-  providers:    [ WebSocketService ],
+  providers:    [ WebsocketService ],
   bootstrap:    [ BoardComponent ]
 })
 export class AppModule { }
